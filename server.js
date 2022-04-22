@@ -30,6 +30,7 @@ app.post('/add_task', (req, res)=>{
 // GET ALL TASK
 app.get('/tasks', (req, res)=>{
   myModel.TaskModel.find()
+  .populate("assignee")
   .then((result)=>{
     res.send(result);
   })
